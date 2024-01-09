@@ -3,22 +3,28 @@ import numpy as np
 
 # Function to get the dominant color using k-means clustering
 def get_dominant_color(image, n_colors):
+    # Convert the image to a 1D array of pixels
     pixels = np.float32(image).reshape((-1, 3))
+    
+    # Set criteria for k-means clustering
     criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 200, .1)
     flags = cv2.KMEANS_RANDOM_CENTERS
+
+    # Apply k-means clustering to find dominant colors
     flags, labels, centroids = cv2.kmeans(
         pixels, n_colors, None, criteria, 10, flags)
 
-    # Using numpy.unique to get unique values and their frequencies
+    # Get unique labels and their counts
     unique_labels, label_counts = np.unique(labels, return_counts=True)
 
-    # Finding the label with the maximum count
+    # Find the label with the maximum count (dominant label)
     dominant_label = unique_labels[np.argmax(label_counts)]
 
-    # Finding the centroid corresponding to the dominant label
+    # Get the centroid corresponding to the dominant label (dominant color)
     dominant_color = centroids[dominant_label]
 
     return np.uint8(dominant_color)
+
 
 # Variable to track mouse click
 clicked = False
