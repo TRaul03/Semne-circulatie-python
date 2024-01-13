@@ -32,6 +32,10 @@ Numpy - https://numpy.org/
 
 Surse de inspirație - https://chat.openai.com/ ( diverse clarificări + ajutor in ceea ce privește sintaxa) 
 
+ 
+
+ 
+
 Ex: https://chat.openai.com/share/06dd1f37-c91c-427e-9fa3-2b110af16da8 
 
       https://chat.openai.com/share/b1b4892d-3580-40d6-9733-001c5d4b243c  
